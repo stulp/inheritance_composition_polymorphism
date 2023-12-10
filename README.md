@@ -8,7 +8,7 @@ The three Java files in this repo illustrate these concepts. They do not require
 
 ## Use Case
 
-Suppose there is some game that has a state, called `MyState`. This state can be plotted in a `GUI`. `MyState` provides the accessors `getX` and `setX`. The example has been kept minimal for legibility and didactical purposes; to understand the impact of the below on code reuse, imagine that each constructor/function is 100 lines of code (or more).
+Suppose there is some game that has a state, called `MyState`. This state can be plotted in a `GUI`. `MyState` provides the accessors `getX` and `setX`. The example has been kept minimal for legibility and didactical purposes; to understand the impact of the below on code reuse, imagine that each constructor/function is 100 lines of code (or more). (note that I've dropped the distracting  `static` keywords from the code in the below snippets)
 
 ```Java
 class MyState {
@@ -20,7 +20,7 @@ class MyState {
 
 Later, a requirement is added to be able to undo changes to the state, and to log which player changed the state. The marketing department furthermore proposes to introduce special "magic" commands, which modify the state is a very specific way. On the other hand, a colleague developer needs `MyState` class elsewhere in the codebase, and is adament that its API is not changed. 
 
-To meet these new requirements the [Command design pattern](https://refactoring.guru/design-patterns/command) is used, by providing the interface `Command`, and having specific commands implement it (including a "magic" command). The idea is that the state should only be changed by applying Commands to it, rather than using the `setX` method (I've dropped the distracting  `static` keywords from the code in the below snippets).
+To meet these new requirements the [Command design pattern](https://refactoring.guru/design-patterns/command) is used, by providing the interface `Command`, and having specific commands implement it (including a "magic" command). The idea is that the state should only be changed by applying Commands to it, rather than using the `setX` method.
 
 ```Java
 interface Command {
