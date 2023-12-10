@@ -97,7 +97,11 @@ interface MyStateReadOnly {
 }
 ```
 
-## Comparison of languages
+The image below shows the differences between the codes are not that large. But the amount of bugs that can be avoided by using composition instead of inheritance for code reuse can save a lot of time!
+
+![Code diffs](inheritance_vs_polymorphism.png)
+
+## Personal perspective on the above wrt different languages
 
 * Java
    * has the explicit `interface` keyword. Really helps with the correct implementation of many Design Patterns.
