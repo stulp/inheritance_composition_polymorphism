@@ -50,7 +50,7 @@ class MyStateUndo extends MyState { // Inheritance
 }
 ```
 
-Now we can start playing the game! Below an example, where player1 and player2 provide a command. Strangely, `setX` is called in between, leading for unclear semantics of the `undo()` command. In fact, `setX` should really not be called on `MyStateUndo` at all, because the state change is not pushed on the stack of changes! 
+Now we can start playing the game! Below an example, where player1 and player2 provide a command. Strangely, `setX(int)` is called in between, leading for unclear semantics of the `undo()` command. In fact, `setX(int)` should really not be called on `MyStateUndo` at all, because the state change is not pushed on the stack of changes! 
 
 ```Java
     MyStateUndo state3 = new MyStateUndo();
@@ -60,7 +60,7 @@ Now we can start playing the game! Below an example, where player1 and player2 p
     state3.undo(); // What is the result now: weird to undo player2's move on the 20 above!!
 ```
 
-The reason that we can call `setX` is because `MyStateUndo` inherits it from `MyState`. This is not good. A workaround could be to override `setX` in `MyStateUndo`, and make it throw an exception when it is called. But that would only lead to run-time errors. We would rather catch illegal calls to `setX` during compile-time.
+The reason that we can call `setX(int)` is because `MyStateUndo` inherits it from `MyState`. This is not good. A workaround could be to override `setX(int)` in `MyStateUndo`, and make it throw an exception when it is called. But that would only lead to run-time errors. We would rather catch illegal calls to `setX(int)` during compile-time.
 
 ## Composition
 
