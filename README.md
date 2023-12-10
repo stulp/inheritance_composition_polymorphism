@@ -99,13 +99,16 @@ There has been an adverse side-effect when going from inheritance to composition
 
 We can redeem polymorphism by introducing an interface `MyStateReadOnly`, which enforces implementation of the `getX()` function. The GUI now only has one function that takes an object that implements `MyStateReadOnly`. For this to work, both `MyState` and `MyStateUndo` must implement `MyStateReadOnly`. This is a trivial modification, because they already implemented the `getX()` function (otherwise we could not have plotted them in the GUI).
 
-As a side-remark, this is a general trick I have often used in Java, where I dearly miss the C++'s `const` annotator for functions and arguments. You have a class `MyClass` for which you make an interface `MyClassReadOnly` which only provides functions that do not modify the state of the object. You can now pass a `MyClass` object as a `MyClassReadOnly` to a function, and be 100% sure that it will not change its state. Again, IDE's should provide support for doing so. Eclipse has "Refactor" => "Extract Interface" for doing exactly this.
-
 ```Java
 interface MyStateReadOnly {
     int getX();
 }
 ```
+
+As a side-remark, this is a general trick I have often used in Java, where I dearly miss the C++'s `const` annotator for functions and arguments. You have a class `MyClass` for which you make an interface `MyClassReadOnly` which only provides functions that do not modify the state of the object. You can now pass a `MyClass` object as a `MyClassReadOnly` to a function, and be 100% sure that it will not change its state. Again, IDE's should provide support for doing so. Eclipse has "Refactor" => "Extract Interface" for doing exactly this.
+
+
+## Summary of differences between the three examples
 
 The image below shows the differences between the codes are not that large. But the amount of bugs that can be avoided by using composition instead of inheritance for code reuse can save a lot of time!
 
