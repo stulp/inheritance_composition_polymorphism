@@ -18,7 +18,7 @@ class MyState {
 }
 ```
 
-Later, a requirement is added to be able to undo changes to the state, and to log which player changed the state. The marketing department furthermore proposes to introduce special "magic" commands, which modify the state is a very specific way. However, the `MyState` class is still needed elsewhere in the codebase, so we may not modify its API. 
+Later, a requirement is added to be able to undo changes to the state, and to log which player changed the state. The marketing department furthermore proposes to introduce special "magic" commands, which modify the state is a very specific way. On the other hand, a colleague developer needs `MyState` class elsewhere in the codebase, and is adament that its API is not changed. 
 
 To meet these new requirements the [Command design pattern](https://refactoring.guru/design-patterns/command) is used, by providing the interface `Command`, and having specific commands implement it (including a "magic" command). The idea is that the state should only be changed by applying Commands to it, rather than using the `setX` method (I've dropped the distracting  `static` keywords from the code in the below snippets).
 
