@@ -50,7 +50,7 @@ class MyStateUndo extends MyState { // Inheritance
 }
 ```
 
-Now we can start playing the game! Below an example, where player1 and player2 provide a command. Strangely, `setX` is called in between, leading for unclear semantics of the `undo()` command. `setX` should not be called on `MyStateUndo`, because the state change is not pushed on the stack of changes! 
+Now we can start playing the game! Below an example, where player1 and player2 provide a command. Strangely, `setX` is called in between, leading for unclear semantics of the `undo()` command. In fact, `setX` should really not be called on `MyStateUndo` at all, because the state change is not pushed on the stack of changes! 
 
 ```Java
     MyStateUndo state3 = new MyStateUndo();
