@@ -64,7 +64,7 @@ The reason that we can call `setX(int)` is because `MyStateUndo` inherits it fro
 
 ## Composition
 
-An alternative to inheritance is composition. In this example, it is achieved by making `MyState` a member variable of `MyStateUndo` (i.e. `MyStateUndo` is *composed* of a `MyState` member, and possible other members).
+An [alternative to inheritance is composition](https://en.wikipedia.org/wiki/Composition_over_inheritance). In this example, it is achieved by making `MyState` a member variable of `MyStateUndo` (i.e. `MyStateUndo` is *composed* of a `MyState` member, and possible other members).
 
 ```Java
 class MyStateUndo {
@@ -91,7 +91,7 @@ class MyStateUndo {
 
 Now we have the best of both worlds! We reuse the `getX` code in `MyState`, by delegating the `getX` call to the delegate member. And we cannot call `setX` on an `MyStateUndo` object, because it was not inherited from `MyState`.
 
-There are some downsides to this approach, one of them being the need to write delegator functions. Luckily, a good IDE will allow you to generate delegator functions for a member upon request. For instance, in Eclipse it is done with "Source" => "Generate delegate methods". If your IDE does not have an analogues feature, I think it's time to change IDE...
+There are some [downsides to this approach](https://en.wikipedia.org/wiki/Composition_over_inheritance#Drawbacks), one of them being the need to write delegator functions. Luckily, a good IDE will allow you to generate delegator functions for a member upon request. For instance, in Eclipse it is done with "Source" => "Generate delegate methods". If your IDE does not have an analogues feature, I think it's time to change IDE...
 
 ## Polymorphism Redeemed (that's a cool bandname!)
 
