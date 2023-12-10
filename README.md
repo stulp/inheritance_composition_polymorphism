@@ -4,7 +4,7 @@ Initially I used to (ab)use inheritance often to foster code reuse in C++ and Ja
 
 Composition often leads to more modular and extensible code, at the cost of having to have delegate functions. A cost that is reduced substantially by automating their generation with IDEs such as Eclipse.  Finally, interfaces (Java) / pure virtual classes (C++) / traits (Rust) allow for polymorphism without inheritance. It's very unfortunate that Python does not have this as a built-in concept.
 
-These three Java files illustrate these concepts. They do not require deep knowledge of Java, and should be legible for C++/Rust/Python coders.
+The three Java files in this repo illustrate these concepts. They do not require deep knowledge of Java, and should be legible for C++/Rust/Python coders.
 
 ## Use Case
 
