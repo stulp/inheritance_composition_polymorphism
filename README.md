@@ -62,7 +62,7 @@ Now we can start playing the game! Below an example, where player1 and player2 p
 
 The reason that we can call `setX(int)` is because `MyStateUndo` inherits it from `MyState`. This is not good. A workaround could be to override `setX(int)` in `MyStateUndo`, and make it throw an exception when it is called. But that would only lead to run-time errors. We would rather catch illegal calls to `setX(int)` during compile-time.
 
-## Composition
+## Option 2a: Composition
 
 An [alternative to inheritance is composition](https://en.wikipedia.org/wiki/Composition_over_inheritance). In this example, it is achieved by making `MyState` a member variable of `MyStateUndo` (i.e. `MyStateUndo` is *composed* of a `MyState` member, and possible other members).
 
@@ -93,7 +93,7 @@ Now we have the best of both worlds! We reuse the `getX` code in `MyState`, by d
 
 There are some [downsides to this approach](https://en.wikipedia.org/wiki/Composition_over_inheritance#Drawbacks), one of them being the need to write delegator functions. Luckily, a good IDE will allow you to generate delegator functions for a member upon request. For instance, in Eclipse it is done with "Source" => "Generate delegate methods". If your IDE does not have an analogues feature, I think it's time to change IDE...
 
-## Polymorphism Redeemed (that's a cool bandname!)
+## Option 2b: Polymorphism Redeemed (that's a cool bandname!)
 
 There has been an adverse side-effect when going from inheritance to composition. Before, the GUI class had only one function `plotState(MyState state)`. With composition, `MyStateUndo` is not longer a subclass of `MyState`, so we have to add a function `plotState(MyStateUndo state)` to the GUI class. This is annoying, and will quickly escalate throughout the code.
 
