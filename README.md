@@ -64,7 +64,7 @@ The reason that we can call `setX(int)` is because `MyStateUndo` inherits it fro
 
 ## Composition
 
-An alternative to inheritance is composition. That is `MyStateUndo` has a member variable of class `MyState` (i.e. is *composed* of a `MyState` member).
+An alternative to inheritance is composition. In this example, it is achieved by making `MyState` a member variable of `MyStateUndo` (i.e. `MyStateUndo` is *composed* of a `MyState` member, and possible other members).
 
 ```Java
 class MyStateUndo {
