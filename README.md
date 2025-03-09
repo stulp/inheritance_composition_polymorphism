@@ -97,6 +97,8 @@ There are some [downsides to this approach](https://en.wikipedia.org/wiki/Compos
 
 There has been an adverse side-effect when going from inheritance to composition. Before, the GUI class had only one function `plotState(MyState state)`. With composition, `MyStateUndo` is not longer a subclass of `MyState`, so we have to add a function `plotState(MyStateUndo state)` to the GUI class. This is annoying, and will quickly escalate throughout the code.
 
+Another downside is that `MyState` and `MyStateUndo` do not share a base class, so we cannot loop over a list that contains objects of both classes and easily call `getX()` on them without casting ugliness.
+
 We can redeem polymorphism by introducing an interface `MyStateReadOnly`, which enforces implementation of the `getX()` function. The GUI now only has one function that takes an object that implements `MyStateReadOnly`. For this to work, both `MyState` and `MyStateUndo` must implement `MyStateReadOnly`. This is a trivial modification, because they already implemented the `getX()` function (otherwise we could not have plotted them in the GUI).
 
 ```Java
